@@ -1,0 +1,21 @@
+name: docker image build
+
+on:
+  push:
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Build image and publish
+      uses: elgohr/Publish-Docker-Github-Action@2.12
+      with:
+        name: zanasufiit/tabulate-form-csv
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+        snapshot: true
