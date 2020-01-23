@@ -18,7 +18,8 @@ for i in data:
     for w in re.findall(times_regex, i[2]):
         times.add(w)
 
-times = list(times).sort()
+times = list(times)
+times.sort()
 
 for i in data:
     who = i[1]
